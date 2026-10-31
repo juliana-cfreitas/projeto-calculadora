@@ -34,6 +34,11 @@
         <button id="BotaoSubtrair">Calcular</button>
     </div>
 
+    <div id="blocomultiplicar" style="display: none; margin-top: 15px;">
+        <input type="number" id="num7" placeholder="Número 1">
+        <input type="number" id="num8" placeholder="Número 2">
+        <button id="BotaoMultiplicar">Calcular</button>
+    </div>
     
     <h1 id="res"></h1>
 
@@ -65,6 +70,16 @@
             document.getElementById('res').textContent = "Resultado " + (n5-n6)
         });
 
+        const btnMult = document.getElementById('BotaoMultiplicar');
+        btnMult.addEventListener('click', function() {
+            
+            let n5 = parseInt(document.getElementById('num7').value);
+            let n6 = parseInt(document.getElementById('num8').value);
+
+            document.getElementById('res').textContent = "Resultado " + (n5*n6)
+        });
+
+
         function verificaOpcao() {
             const selectPrincipal = document.getElementById('tipo').value;
             const blocoOutro = document.getElementById('blocoCaixa');
@@ -75,6 +90,9 @@
                 blocodiv.style.display = 'block';
             }if (selectPrincipal == 'subtrair') {
                 blocosubtrair.style.display = 'block';
+            }
+            if (selectPrincipal == 'multiplicar') {
+                blocomultiplicar.style.display = 'block';
             }
         }
     </script>
