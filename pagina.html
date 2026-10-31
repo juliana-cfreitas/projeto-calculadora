@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula30</title>
+</head>
+<body>
+
+    <label> Tipo de Calculo </label>
+    <select id="tipo" onchange="verificaOpcao()">
+        <option value=""> Selecione </option>
+        <option value="somar"> Somar </option>
+        <option value="subtrair"> Subtrair </option>
+        <option value="multiplicar"> Multiplicar </option>
+        <option value="dividir"> Dividir </option>
+    </select>
+
+    
+    <div id="blocosomar" style="display: none; margin-top: 15px;">
+        <input type="number" id="num1" placeholder="Número 1">
+        <input type="number" id="num2" placeholder="Número 2">
+        <button id="BotaoSomar">Calcular</button>
+    </div>
+
+    <div id="blocodiv" style="display: none; margin-top: 15px;">
+        <input type="number" id="num3" placeholder="Número 1">
+        <input type="number" id="num4" placeholder="Número 2">
+        <button id="BotaoDividir">Calcular</button>
+    </div>
+
+    <div id="blocosubtrair" style="display: none; margin-top: 15px;">
+        <input type="number" id="num5" placeholder="Número 1">
+        <input type="number" id="num6" placeholder="Número 2">
+        <button id="BotaoSubtrair">Calcular</button>
+    </div>
+
+    
+    <h1 id="res"></h1>
+
+    <script>
+        const btnS = document.getElementById('BotaoSomar');
+        btnS.addEventListener('click', function() {
+            let n1 = parseInt(document.getElementById('num1').value);
+            let n2 = parseInt(document.getElementById('num2').value);
+
+            document.getElementById('res').textContent = "Resultado " + (n1+n2)
+
+                });
+
+                const btnD = document.getElementById('BotaoDividir');
+        btnD.addEventListener('click', function() {
+            
+            let n3 = parseInt(document.getElementById('num3').value);
+           let n4 = parseInt(document.getElementById('num4').value);
+
+            document.getElementById('res').textContent = "Resultado " + (n3/n4)
+                });
+
+                const btnSub = document.getElementById('BotaoSubtrair');
+        btnSub.addEventListener('click', function() {
+            
+            let n5 = parseInt(document.getElementById('num5').value);
+            let n6 = parseInt(document.getElementById('num6').value);
+
+            document.getElementById('res').textContent = "Resultado " + (n5-n6)
+        });
+
+        function verificaOpcao() {
+            const selectPrincipal = document.getElementById('tipo').value;
+            const blocoOutro = document.getElementById('blocoCaixa');
+
+            if (selectPrincipal == 'somar') {
+                blocosomar.style.display = 'block';
+            }if (selectPrincipal == 'dividir') {
+                blocodiv.style.display = 'block';
+            }if (selectPrincipal == 'subtrair') {
+                blocosubtrair.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
